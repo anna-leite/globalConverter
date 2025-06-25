@@ -174,7 +174,7 @@ public class GlobalConvertor {
          System.out.println();
 
          System.out.println(YELLOW + "NOTE" + RESET + " : " + RED + "<text>" + RESET + " must contain only numbers, " +
-                 "letters (upper- or lower-case), and spaces.");
+                 "letters (upper- or lower-case), and spaces. It must be enclosed in double quotes.");
          System.out.println();
 
          System.out.println(RED + "<cipher> " + RESET + YELLOW + "OPTIONS :" + RESET);
