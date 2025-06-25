@@ -1,5 +1,15 @@
+/**
+ * A simple Caesar Cipher utility for encrypting and decrypting text using a character shift.
+ */
 public class CaesarCipher {
-    
+
+    /**
+     * Encrypts the input text using Caesar cipher with the given shift.
+     *
+     * @param text the plain text to encrypt
+     * @param shift the number of characters to shift (positive integer)
+     * @return the encrypted text
+     */
     public static String encrypt(String text, int shift) {
         StringBuilder result = new StringBuilder();
         
@@ -23,7 +33,14 @@ public class CaesarCipher {
         
         return result.toString();
     }
-    
+
+    /**
+     * Decrypts a Caesar ciphered text using the given shift.
+     *
+     * @param text the encrypted text
+     * @param shift the shift that was originally used to encrypt
+     * @return the decrypted (original) text
+     */
     public static String decrypt(String text, int shift) {
         // Decryption is just encryption with negative shift
         return encrypt(text, -shift);
