@@ -1,6 +1,16 @@
-public class Converter {
-    
-    // Convert a decimal value to the target base
+/**
+ * Utility class for converting ASCII character values between decimal and other bases.
+ */
+public class AsciiConverter {
+
+    /**
+     * Converts a decimal integer to its representation in a given base (up to 36).
+     *
+     * @param decimal the decimal value to convert
+     * @param base the target base (between 2 and 36)
+     * @return the string representation of the value in the given base
+     * @throws IllegalArgumentException if base is out of range
+     */
     public static String convertToBase(int decimal, int base) {
         if (decimal == 0) return "0";
         
@@ -21,8 +31,15 @@ public class Converter {
         
         return result.toString();
     }
-    
-    // Convert from target base to decimal
+
+    /**
+     * Converts a number string in a given base (up to 36) back to its decimal integer value.
+     *
+     * @param value the string representing a number in the given base
+     * @param base the base of the number (between 2 and 36)
+     * @return the decimal integer equivalent of the string
+     * @throws IllegalArgumentException if the input contains invalid characters
+     */
     public static int convertToDecimal(String value, int base) {
         int decimal = 0;
         
