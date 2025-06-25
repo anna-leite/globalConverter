@@ -23,6 +23,8 @@ public class GlobalConvertor {
             UserInterface.displayOriginalText(inputText);
             inputText = CaesarCipher.encrypt(inputText, shiftKey);
             UserInterface.displayEncryptionResult(inputText);
+        } else {
+            UserInterface.displayOriginalText(inputText);
         }
 
         // Perform the base conversion
