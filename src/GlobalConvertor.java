@@ -1,31 +1,43 @@
+/**
+ * Entry point for the Global Converter application.
+ * Handles user interaction, optional Caesar cipher encryption,
+ * base conversion, and optional reverse conversion.
+ */
 public class GlobalConvertor {
+
     public static void main(String[] args) {
         System.out.println("=== Global Converter ===");
-        
-        // Get user input
+
+        // Prompt the user for the input string
         String inputText = UserInterface.promptForValidString();
+
+        // Prompt the user for the desired base conversion option
         String baseOption = UserInterface.promptForValidBase();
+
         int shiftKey = 0;
-        
-        // Handle encryption if requested
+
+        // Ask if the user wants to apply Caesar cipher encryption
         boolean encrypt = UserInterface.promptForEncryption();
         if (encrypt) {
             shiftKey = UserInterface.promptForShiftKey();
+            UserInterface.displayOriginalText(inputText);
             inputText = CaesarCipher.encrypt(inputText, shiftKey);
             UserInterface.displayEncryptionResult(inputText);
+        } else {
+            UserInterface.displayOriginalText(inputText);
         }
-        
-        // Convert to the requested base
-        String result = BaseConverter.convertString(inputText, baseOption);
-        
-        UserInterface.displayOriginalText(inputText);
-        UserInterface.displayConversionResult(result, BaseConverter.getFullBaseName(baseOption));
-        
-        // Handle conversion back if requested
+
+        // Perform the base conversion
+        String result = Controler.convertString(inputText, baseOption);
+
+        // Display the converted result
+        UserInterface.displayConversionResult(result, UserInterface.getFullBaseName(baseOption));
+
+        // Ask the user whether to convert back
         if (UserInterface.promptForConvertBack()) {
-            String originalText = BaseConverter.convertBack(result, baseOption);
-            
-            // Decrypt if needed
+            String originalText = Controler.convertBack(result, baseOption);
+
+            // Decrypt the text if it was encrypted earlier
             if (encrypt) {
                 originalText = CaesarCipher.decrypt(originalText, shiftKey);
                 UserInterface.displayDecryptionResult(originalText);
