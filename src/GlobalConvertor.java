@@ -6,7 +6,6 @@
 public class GlobalConvertor {
      private static final String RESET = "\u001B[0m";
      private static final String RED = "\u001B[31m";
-     private static final String GREEN = "\u001B[32m";
      private static final String YELLOW = "\u001B[33m";
      private static final String CYAN = "\u001B[36m";
      private static final String PURPLE = "\u001B[35m";
@@ -174,7 +173,7 @@ public class GlobalConvertor {
          System.out.println();
 
          System.out.println(YELLOW + "NOTE" + RESET + " : " + RED + "<text>" + RESET + " must contain only numbers, " +
-                 "letters (upper- or lower-case), and spaces. It must be enclosed in double quotes.");
+                 "letters (upper- or lower-case ASCII letters, no accents), and spaces. It must be enclosed in double quotes.");
          System.out.println();
 
          System.out.println(RED + "<cipher> " + RESET + YELLOW + "OPTIONS :" + RESET);
